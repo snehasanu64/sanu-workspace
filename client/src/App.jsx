@@ -83,10 +83,16 @@ function App() {
   const fetchTasks = async () => {
     try {
       const response = await axios.get(API_BASE_URL);
-      setTasks(response.data);
+      if (Array.isArray(response.data)) {
+        setTasks(response.data);
+      } else {
+        console.error('Invalid data received from API');
+        setTasks([]);
+      }
       setLoading(false);
     } catch (error) {
       console.error('Oops! Could not load tasks:', error);
+      setTasks([]);
       setLoading(false);
     }
   };

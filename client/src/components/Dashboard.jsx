@@ -5,12 +5,19 @@ const Dashboard = ({ tasks, onToggleComplete, onAddTask, onEditTask, onDeleteTas
   const completedTasks = tasks.filter(t => t.completed).length;
   const progressPercent = tasks.length > 0 ? Math.round((completedTasks / tasks.length) * 100) : 0;
 
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Good Morning';
+    if (hour < 18) return 'Good Afternoon';
+    return 'Good Evening';
+  };
+
   return (
     <div className="main-content">
       {/* Header Section */}
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div>
-          <h1 style={{ fontSize: '36px', marginBottom: '8px' }}>Good Morning, Sanu</h1>
+          <h1 style={{ fontSize: '36px', marginBottom: '8px' }}>{getGreeting()}, Sanu</h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '16px' }}>
             Ready to find your flow today? You have <span style={{ color: 'var(--accent-red)' }}>{tasks.filter(t => t.urgency === 'High Priority' && !t.completed).length} high-priority</span> tasks waiting.
           </p>
