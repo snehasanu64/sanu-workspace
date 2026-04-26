@@ -29,8 +29,11 @@ mongoose.connect(MONGODB_URI, { serverSelectionTimeoutMS: 2000 })
 app.use('/api/tasks', taskRoutes);
 app.use('/api/notes', noteRoutes);
 
-// SPA Routing: Send everything else to index.html
-app.get('(.*)', (req, res) => {
+// SPA Routing: Serve index.html for any request that isn't an API call
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    return next();
+  }
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
