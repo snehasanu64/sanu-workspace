@@ -1,0 +1,133 @@
+:root {
+  --bg-deep: #0a0a0c;
+  --bg-surface: #141416;
+  --accent-blue: #3d5afe;
+  --accent-green: #00ffa3;
+  --accent-red: #ff3d71;
+  --accent-purple: #7c4dff;
+  --accent-cyan: #00e5ff;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1a6;
+  --text-muted: #636366;
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --sidebar-width: 280px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 32px;
+  margin: 40px 0;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+}
+
+.glass-heavy {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .main-content {
+    padding: 24px 20px;
+    margin-top: 60px; /* Space for mobile header */
+  }
+
+  header h1 {
+    font-size: 28px !important;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  header button {
+    width: 100%;
+  }
+
+  .sidebar-container {
+    width: 100% !important;
+    height: auto !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    top: auto !important;
+    left: 0 !important;
+    padding: 12px 20px !important;
+    z-index: 100;
+    flex-direction: row !important;
+    gap: 0 !important;
+    justify-content: space-around !important;
+  }
+
+  .sidebar-profile, .sidebar-focus {
+    display: none !important;
+  }
+
+  .sidebar-nav {
+    flex-direction: row !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+
+  .nav-item {
+    padding: 8px !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    font-size: 10px !important;
+  }
+}
