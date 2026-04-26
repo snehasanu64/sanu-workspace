@@ -30,7 +30,7 @@ app.use('/api/tasks', taskRoutes);
 app.use('/api/notes', noteRoutes);
 
 // SPA Routing: Send everything else to index.html
-app.get('*', (req, res) => {
+app.get('(.*)', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
