@@ -25,6 +25,8 @@ function App() {
   const [taskToEdit, setTaskToEdit] = useState(null);    // Stores the task you're currently editing
   const [loading, setLoading] = useState(true);          // Shows a loading message while we fetch data
   const [currentTab, setCurrentTab] = useState('Dashboard'); // Tracks which page you're looking at
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Controls password screen
+  const [passwordInput, setPasswordInput] = useState('');
 
   // --- 🚀 Startup Logic ---
   // These run once when you first open the app.
@@ -206,6 +208,35 @@ function App() {
         );
     }
   };
+
+  // --- 🔒 Password Protection Screen ---
+  if (!isAuthenticated) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', backgroundColor: '#1e1e1e', color: 'white', flexDirection: 'column', fontFamily: 'sans-serif' }}>
+        <h1 style={{ marginBottom: '10px', fontSize: '32px' }}>🔒 Private Workspace</h1>
+        <p style={{ marginBottom: '30px', color: '#888' }}>Please enter the password to view personal data.</p>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          if (passwordInput === 'sanu2026') { // Default password
+            setIsAuthenticated(true);
+          } else {
+            alert('Incorrect password!');
+          }
+        }} style={{ display: 'flex', flexDirection: 'column', gap: '15px', width: '300px' }}>
+          <input 
+            type="password" 
+            value={passwordInput}
+            onChange={(e) => setPasswordInput(e.target.value)}
+            placeholder="Enter Password" 
+            style={{ padding: '12px', borderRadius: '8px', border: '1px solid #444', backgroundColor: '#2a2a2a', color: 'white', fontSize: '16px' }}
+          />
+          <button type="submit" style={{ padding: '12px', borderRadius: '8px', backgroundColor: '#10b981', color: 'white', border: 'none', cursor: 'pointer', fontWeight: 'bold', fontSize: '16px' }}>
+            Unlock Workspace
+          </button>
+        </form>
+      </div>
+    );
+  }
 
   return (
     <div className="app-container">
