@@ -217,7 +217,7 @@ function App() {
         <p style={{ marginBottom: '30px', color: '#888' }}>Please enter the password to view personal data.</p>
         <form onSubmit={(e) => {
           e.preventDefault();
-          if (passwordInput === 'sanu2026') { // Default password
+          if (passwordInput === 'sanu6227') { // Default password
             setIsAuthenticated(true);
           } else {
             alert('Incorrect password!');
