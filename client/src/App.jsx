@@ -215,12 +215,17 @@ function App() {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', backgroundColor: '#1e1e1e', color: 'white', flexDirection: 'column', fontFamily: 'sans-serif' }}>
         <h1 style={{ marginBottom: '10px', fontSize: '32px' }}>🔒 Private Workspace</h1>
         <p style={{ marginBottom: '30px', color: '#888' }}>Please enter the password to view personal data.</p>
-        <form onSubmit={(e) => {
+        <form onSubmit={async (e) => {
           e.preventDefault();
-          if (passwordInput === 'sanu6227') { // Default password
-            setIsAuthenticated(true);
-          } else {
-            alert('Incorrect password!');
+          try {
+            const res = await axios.post('/api/verify-password', { password: passwordInput });
+            if (res.data.success) {
+              setIsAuthenticated(true);
+            } else {
+              alert('Incorrect password!');
+            }
+          } catch (error) {
+             alert('Error verifying password. Check your server connection.');
           }
         }} style={{ display: 'flex', flexDirection: 'column', gap: '15px', width: '300px' }}>
           <input 

@@ -29,6 +29,17 @@ mongoose.connect(MONGODB_URI, { serverSelectionTimeoutMS: 2000 })
 app.use('/api/tasks', taskRoutes);
 app.use('/api/notes', noteRoutes);
 
+// Password Verification Endpoint
+app.post('/api/verify-password', (req, res) => {
+  const { password } = req.body;
+  const correctPassword = process.env.WORKSPACE_PASSWORD || 'sanu6227';
+  if (password === correctPassword) {
+    res.json({ success: true });
+  } else {
+    res.json({ success: false });
+  }
+});
+
 // SPA Routing: Serve index.html for any request that isn't an API call
 app.use((req, res, next) => {
   if (req.path.startsWith('/api')) {
