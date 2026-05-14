@@ -1,44 +1,63 @@
-# Sanu Workspace 🚀
+# sanu-workspace
 
-A full-stack MERN productivity application built to help manage daily tasks, notes, and schedules all in one place.
+A personal productivity app I built while learning the MERN stack. It handles tasks, notes, and schedules — basically everything I kept forgetting to track. Ended up being one of my more complete projects so I kept improving it.
 
-## ✨ Features
-- **Task Management**: Full CRUD functionality for to-dos.
-- **Notepad View**: Keep track of longer notes and ideas.
-- **Calendar View**: Manage your schedule effectively.
-- **Responsive Design**: Works perfectly on mobile and desktop.
+---
 
-## 📸 Screenshots
-*(You should add some screenshots of your app here!)*
-<!-- Example: ![Dashboard Screenshot](link-to-image.png) -->
+## What it does
 
-## 🛠️ Tech Stack
-- **Frontend**: React.js, Vite
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Deployment**: Render
+- Add, edit, delete tasks (basic but works well)
+- Notepad section for longer thoughts or ideas
+- Calendar to plan out the week
+- Works on phone and desktop without breaking
 
-## 🚀 Getting Started Locally
+---
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/snehasanu64/sanu-workspace.git
-   ```
-2. **Install dependencies:**
-   ```bash
-   cd "project port/TODO"
-   npm run install-all
-   ```
-3. **Set up environment variables:**
-   Create a `.env` file in the `server` directory and add your MongoDB URI:
-   ```env
-   MONGO_URI=your_mongodb_connection_string
-   PORT=5000
-   ```
-4. **Run the app:**
-   ```bash
-   npm run dev
-   ```
+## Stack
 
-## 🔒 Privacy Note
-The live deployment of this project is used as a personal workspace and therefore the live link is not shared publicly to protect personal data.
+- React + Vite (frontend)
+- Node.js + Express (backend)
+- MongoDB (database)
+- Deployed on Render
+
+---
+
+## Running it locally
+
+Clone it first:
+
+```bash
+git clone https://github.com/snehasanu64/sanu-workspace.git
+cd sanu-workspace
+```
+
+Install everything:
+
+```bash
+npm run install-all
+```
+
+Create a `.env` file inside the `server` folder:
+
+```
+MONGO_URI=your_mongodb_uri_here
+PORT=5000
+```
+
+Then start it up:
+
+```bash
+npm run dev
+```
+
+Frontend runs on `localhost:5173`, backend on `localhost:5000`.
+
+---
+
+## Note
+
+I use this as an actual personal workspace so I haven't shared the live link — there's personal data in there. But feel free to run it locally or go through the code.
+
+---
+
+Built by [Sneha](https://github.com/snehasanu64)
