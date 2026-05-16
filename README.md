@@ -1,63 +1,47 @@
-# sanu-workspace
-
-A personal productivity app I built while learning the MERN stack. It handles tasks, notes, and schedules — basically everything I kept forgetting to track. Ended up being one of my more complete projects so I kept improving it.
-
----
-
-## What it does
-
-- Add, edit, delete tasks (basic but works well)
-- Notepad section for longer thoughts or ideas
-- Calendar to plan out the week
-- Works on phone and desktop without breaking
-
----
-
-## Stack
-
-- React + Vite (frontend)
-- Node.js + Express (backend)
-- MongoDB (database)
-- Deployed on Render
-
----
-
-## Running it locally
-
-Clone it first:
-
+# 🗂️ Sanu Workspace
+ 
+A personal productivity app I built while learning the MERN stack.
+Handles tasks, notes, and scheduling — everything I kept forgetting to track.
+ 
+## ✨ Features
+ 
+- Add, edit, delete tasks
+- Notes section for ideas and longer thoughts
+- Weekly calendar/schedule view
+- Fully responsive — works on mobile too
+## 🛠️ Built With
+ 
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+ 
+## 🚀 Live Demo
+ 
+👉 [View Live Site](https://sanu-workspace.onrender.com/)
+ 
+> Note: Hosted on Render free tier — may take ~30 seconds to wake up on first load.
+ 
+## ⚙️ Run Locally
+ 
 ```bash
 git clone https://github.com/snehasanu64/sanu-workspace.git
 cd sanu-workspace
-```
-
-Install everything:
-
-```bash
 npm run install-all
 ```
-
-Create a `.env` file inside the `server` folder:
-
+ 
+Create `.env` in the `server/` folder:
 ```
-MONGO_URI=your_mongodb_uri_here
+MONGO_URI=your_mongodb_uri
 PORT=5000
 ```
-
-Then start it up:
-
+ 
+Then:
 ```bash
 npm run dev
 ```
-
-Frontend runs on `localhost:5173`, backend on `localhost:5000`.
-
+ 
+Frontend → `localhost:5173` | Backend → `localhost:5000`
+ 
 ---
-
-## Note
-
-I use this as an actual personal workspace so I haven't shared the live link — there's personal data in there. But feel free to run it locally or go through the code.
-
----
-
 Built by [Sneha](https://github.com/snehasanu64)
