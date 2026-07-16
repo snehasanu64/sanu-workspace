@@ -25,6 +25,12 @@ mongoose.connect(MONGODB_URI, { serverSelectionTimeoutMS: 2000 })
   .then(() => console.log('Connected to MongoDB successfully'))
   .catch(err => console.log('Using local file fallback (MongoDB not connected)'));
 
+// Middleware to pass DB status to routes
+app.use((req, res, next) => {
+  req.dbConnected = mongoose.connection.readyState === 1;
+  next();
+});
+
 // Routes
 app.use('/api/tasks', taskRoutes);
 app.use('/api/notes', noteRoutes);
